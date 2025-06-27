@@ -43,8 +43,7 @@ const boxes = [
             <Link
               key={index}
               href={box.link}
-              className="border border-black p-6 text-center"
-            >
+              className="border border-black p-6 text-center">
               <h2 className="text-black text-xl font-bold mb-2">{box.title}</h2>
               <p className="text-gray-700">{box.description}</p>
             </Link>
