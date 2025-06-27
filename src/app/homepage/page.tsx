@@ -1,7 +1,5 @@
 import Header from './header'
 import Boxes from './boxes'
-import Link from 'next/link';
-
 
 export default function HomePage() {
     return (
