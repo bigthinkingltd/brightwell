@@ -37,8 +37,8 @@ const boxes = [
 
   export default function Boxes() {
     return (
-      <div className="flex justify-center py-12 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+      <div className="flex justify-center mt-30 py-12 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl w-full">
           {boxes.map((box, index) => (
             <Link
               key={index}
