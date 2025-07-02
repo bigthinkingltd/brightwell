@@ -24,7 +24,7 @@ export default function HousesPage() {
               that only then will you be able to find the answers you seek. You
               ask the Five Questions of 'Why' and never accept a first answer.
             </p>
-            {/* eslint-disable react/no-unescaped-entities */}
+            {/* eslint-enable react/no-unescaped-entities */}
           </div>
 
           <div>
@@ -41,14 +41,13 @@ export default function HousesPage() {
               to the birds, knowing that when they tip their head, they say ‘good
               morning’ to you.
             </p>
-            {/* eslint-disable react/no-unescaped-entities */}
+            {/* eslint-enable react/no-unescaped-entities */}
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-center mb-4 uppercase tracking-wide">
               House of Wonder
             </h2>
-            {/* eslint-disable react/no-unescaped-entities */}
             <p>
               Creative sorts will find themselves here, amid dusty tomes and ink
               splotches. You are the makers, the menders, the ones to come to
@@ -59,14 +58,12 @@ export default function HousesPage() {
               dragons and soar the skies on the backs of eagles, painting a sky
               full of wonder.
             </p>
-            {/* eslint-disable react/no-unescaped-entities */}
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-center mb-4 uppercase tracking-wide">
               House of the Watch
             </h2>
-            {/* eslint-disable react/no-unescaped-entities */}
             <p>
               You are the honest, the brave, and the true. You seek to speak up
               when others stay quiet, knowing that your voice is a sharp as a
@@ -77,7 +74,6 @@ export default function HousesPage() {
               friend, and there is someone not afraid to stand up for what is
               right.
             </p>
-            {/* eslint-disable react/no-unescaped-entities */}
           </div>
         </div>
       </div>

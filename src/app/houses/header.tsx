@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Header(){
     return (
       <header className="relative w-full h-20 mt-8">
