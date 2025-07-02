@@ -35,8 +35,8 @@ export default function HousesPage() {
               you are the carers of the Earth, the nurturers, friends of the Fae
               and the wildlings. You are the keepers of the oceans and the
               saviours of the deep. You talk to the trees and say 'good morning'
-              to the birds, knowing that when they tip their head, they say ‘good
-              morning’ to you.
+              to the birds, knowing that when they tip their head, they say &apos;good
+              morning&apos; to you.
             </p>
           </div>
 
