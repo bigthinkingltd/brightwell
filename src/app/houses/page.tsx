@@ -13,6 +13,7 @@ export default function HousesPage() {
             <h2 className="text-2xl font-bold text-center mb-4 uppercase tracking-wide">
               House of Wisdom
             </h2>
+            {/* eslint-disable react/no-unescaped-entities */}
             <p>
               Oh, students of the House of Wisdom … how you often ask why?!
               There is no amount of answers that will satisfy your need to know.
@@ -23,27 +24,31 @@ export default function HousesPage() {
               that only then will you be able to find the answers you seek. You
               ask the Five Questions of 'Why' and never accept a first answer.
             </p>
+            {/* eslint-disable react/no-unescaped-entities */}
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-center mb-4 uppercase tracking-wide">
               House of the Wild
             </h2>
+            {/* eslint-disable react/no-unescaped-entities */}
             <p>
               You walk softly, save snails, and take care of the wild spaces.
               Animal lovers often find themselves in the House of the Wild, for
               you are the carers of the Earth, the nurturers, friends of the Fae
               and the wildlings. You are the keepers of the oceans and the
               saviours of the deep. You talk to the trees and say 'good morning'
-              to the birds, knowing that when they tip their head, they say &apos;good
-              morning&apos; to you.
+              to the birds, knowing that when they tip their head, they say ‘good
+              morning’ to you.
             </p>
+            {/* eslint-disable react/no-unescaped-entities */}
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-center mb-4 uppercase tracking-wide">
               House of Wonder
             </h2>
+            {/* eslint-disable react/no-unescaped-entities */}
             <p>
               Creative sorts will find themselves here, amid dusty tomes and ink
               splotches. You are the makers, the menders, the ones to come to
@@ -54,12 +59,14 @@ export default function HousesPage() {
               dragons and soar the skies on the backs of eagles, painting a sky
               full of wonder.
             </p>
+            {/* eslint-disable react/no-unescaped-entities */}
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-center mb-4 uppercase tracking-wide">
               House of the Watch
             </h2>
+            {/* eslint-disable react/no-unescaped-entities */}
             <p>
               You are the honest, the brave, and the true. You seek to speak up
               when others stay quiet, knowing that your voice is a sharp as a
@@ -70,6 +77,7 @@ export default function HousesPage() {
               friend, and there is someone not afraid to stand up for what is
               right.
             </p>
+            {/* eslint-disable react/no-unescaped-entities */}
           </div>
         </div>
       </div>
