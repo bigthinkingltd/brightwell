@@ -7,7 +7,7 @@ export default function HousesPage() {
 
       <div className="max-w-7xl mx-auto mt-12">
 
-        <div className="grid md:grid-cols-2 gap-16 font-serif text-lg leading-relaxed">
+        <div className="grid md:grid-cols-2 gap-16 text-lg leading-relaxed">
           <div>
             <h2 className="text-2xl font-bold text-center mb-4 uppercase tracking-wide">
               House of Wisdom

@@ -50,7 +50,7 @@ export default function BrightwellNameGenerator() {
   return (
     <div className="w-full py-16 px-6 md:px-20 bg-transparent text-black">
       <div className="max-w-4xl mx-auto border-4 border-yellow-900 p-10 rounded-3xl bg-yellow-100 bg-opacity-70 shadow-xl shadow-yellow-900/20">
-        <h1 className="text-4xl font-bold mb-8 tracking-wide font-serif text-center">
+        <h1 className="text-4xl font-bold mb-8 tracking-wide text-center">
           Brightwell Name Generator
         </h1>
 

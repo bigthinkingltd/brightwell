@@ -11,7 +11,7 @@ export default function Header(){
         />
         </Link>
   
-        <h1 className="m-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl md:text-5xl font-serif font-bold text-black drop-shadow-md whitespace-nowrap">
+        <h1 className="m-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl md:text-5xl font-bold text-black drop-shadow-md whitespace-nowrap">
           The Four Houses of Brightwell
         </h1>
       </header>
