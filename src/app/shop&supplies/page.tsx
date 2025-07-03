@@ -1,7 +1,25 @@
-export default function HousesPage() {
+import Header from './header';
+
+export default function ShopPage() {
     return (
-      <main className="min-h-screen flex items-center justify-center">
-        <h1 className="text-black text-3xl font-bold">Welcome to the Shop & Supplies Page</h1>
-      </main>
+      <div className="min-h-screen bg-[url('/images/parchment.png')] bg-cover bg-center text-black px-6 py-10">
+        <Header />
+
+        <div className="mt-10 flex flex=col md:flex-row justify-center items-center gap-10">
+          <img
+          src="book1.png"
+          alt="Book 1"
+          width={500}
+          height={600}
+          />
+
+          <img
+          src="book2.png"
+          alt="Book 2"
+          width={500}
+          height={600}
+          />
+        </div>
+      </div>
     );
   }
