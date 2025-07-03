@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Quintessential } from "next/font/google";
 import "./globals.css";
+
+const quintessential = Quintessential({
+  variable: "--font-quintessential",
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen overflow-y-auto bg-[url('/websitebackground.jpg')] bg-cover bg-center bg-no-repeat`}>
+        className={`${geistSans.variable} ${geistMono.variable} ${quintessential.variable} antialiased min-h-screen overflow-y-auto bg-[url('/websitebackground.jpg')] bg-cover bg-center bg-no-repeat`}>
         {children}
       </body>
     </html>

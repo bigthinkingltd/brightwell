@@ -3,7 +3,6 @@ import Header from "./header";
 export default function HousesPage() {
   return (
 <div className="min-h-screen bg-[url('/images/parchment.png')] bg-cover bg-center text-black px-6 py-10">
-
       <Header />
 
       <div className="max-w-7xl mx-auto mt-12">
