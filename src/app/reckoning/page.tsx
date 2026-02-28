@@ -55,7 +55,7 @@ const TheForm = () => {
   };
 
   return (
-    <form className="max-w-xl min-w-xs p-4" onSubmit={handleSubmit}>
+    <form className="max-w-2xl min-w-md" onSubmit={handleSubmit}>
       <div className="space-y-5">
         <div>
           <label htmlFor="name" className="md:text-md mb-2 block text-sm text-red-600">
@@ -112,13 +112,13 @@ const TheForm = () => {
           <span>I consent to receiving emails from Brightwell</span>
         </label>
 
-        <p className="text-xs">
+        <p className="text-xs text-red-700 italic">
           We will use your name and home address solely for the purpose of sending your Brightwell
           letter. Your postal details will not be added to any mailing list and will not be used
           again after your letter has been sent.
         </p>
 
-        <p className="text-xs">
+        <p className="text-xs text-red-700 italic">
           Your email address will only be used to contact you about The Reckoning and, if you choose
           to opt in, to receive updates from Brightwell and Darkwell Academies. You can choose
           whether or not to join the Brightwell mailing list using the option below. You may
@@ -126,19 +126,23 @@ const TheForm = () => {
           third parties.
         </p>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full rounded-lg border border-red-900 bg-red-800 px-4 py-3 text-base font-semibold tracking-wide text-red-50 transition hover:bg-red-700 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          {isSubmitting ? 'Sending...' : 'Sign Up'}
-        </button>
-
         {statusMessage ? (
-          <p className={statusType === 'error' ? 'text-sm text-red-700' : 'text-sm text-green-700'}>
-            {statusMessage}
-          </p>
-        ) : null}
+          <div className="bg-opacity-75 px-8 py-4 text-center">
+            <h1 className="title-font mb-3 text-xl font-medium text-red-900 sm:text-xl">
+              {statusMessage}
+            </h1>
+          </div>
+        ) : (
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full rounded-sm bg-red-800 px-4 py-4 text-base font-semibold tracking-wide text-white transition hover:bg-red-700 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
+            >
+              {isSubmitting ? 'Sending...' : 'Sign Up'}
+            </button>
+          </div>
+        )}
       </div>
     </form>
   );
@@ -149,10 +153,9 @@ export default function Home() {
     <main className="relative min-h-screen overflow-hidden bg-white">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[url(/raven.svg)] bg-size-[auto_400px] bg-bottom-left bg-no-repeat opacity-40 md:bg-size-[auto_500px] lg:bg-size-[auto_700px]"
+        className="pointer-events-none absolute inset-0 bg-[url(/raven.svg)] bg-size-[auto_700px] bg-bottom-left bg-no-repeat opacity-40 lg:bg-size-[auto_900px] 2xl:bg-size-[auto_1200px]"
       />
-
-      <div className="relative z-10 flex min-h-screen items-center justify-end">
+      <div className="flex min-h-screen items-center justify-end px-10">
         <TheForm />
       </div>
     </main>
