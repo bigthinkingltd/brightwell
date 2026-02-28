@@ -27,7 +27,7 @@ const TheForm = () => {
     setStatusType(null);
 
     try {
-      const response = await fetch('/api/reckoning', {
+      const response = await fetch('/api/submission', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
