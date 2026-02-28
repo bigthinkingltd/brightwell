@@ -1,62 +1,91 @@
+const TheForm = () => (
+  <form className="max-w-xl min-w-xs p-4">
+    <div className="space-y-5">
+      <div>
+        <label htmlFor="name" className="md:text-md mb-2 block text-sm text-red-600">
+          Name
+        </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Lysandra Quill"
+          autoComplete="name"
+          className="w-full rounded-sm border-2 border-red-500/80 px-2 py-2 text-base shadow-sm transition outline-none placeholder:text-sm placeholder:text-gray-500 placeholder:italic focus:border-zinc-700"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="email" className="md:text-md mb-2 block text-sm text-red-600">
+          Email Address
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="lysandra.quill@brightwell.academy"
+          autoComplete="email"
+          className="w-full rounded-sm border-2 border-red-500/80 px-2 py-2 text-base shadow-sm transition outline-none placeholder:text-sm placeholder:text-gray-500 placeholder:italic focus:border-zinc-700"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="address" className="md:text-md mb-2 block text-sm text-red-600">
+          Postal Address
+        </label>
+        <textarea
+          id="address"
+          name="address"
+          rows={4}
+          placeholder="Brightwell Academy"
+          autoComplete="street-address"
+          className="w-full rounded-sm border-2 border-red-500/80 px-2 py-2 text-base shadow-sm transition outline-none placeholder:text-sm placeholder:text-gray-500 placeholder:italic focus:border-zinc-700"
+        />
+      </div>
+
+      <label className="flex items-start justify-center gap-2 text-sm text-red-600">
+        <input
+          id="consent"
+          name="consent"
+          type="checkbox"
+          className="mt-0.5 h-4 w-4 rounded border border-zinc-500 bg-white accent-red-700"
+        />
+        <span>I consent to receiving emails from Brightwell</span>
+      </label>
+
+      <p className="text-xs">
+        We will use your name and home address solely for the purpose of sending your Brightwell
+        letter. Your postal details will not be added to any mailing list and will not be used again
+        after your letter has been sent.
+      </p>
+
+      <p className="text-xs">
+        Your email address will only be used to contact you about The Reckoning and, if you choose
+        to opt in, to receive updates from Brightwell and Darkwell Academies. You can choose whether
+        or not to join the Brightwell mailing list using the option below. You may unsubscribe from
+        email updates at any time. We do not share your personal information with third parties.
+      </p>
+
+      <button
+        type="submit"
+        className="w-full rounded-lg border border-red-900 bg-red-800 px-4 py-3 text-base font-semibold tracking-wide text-red-50 transition hover:bg-red-700 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
+      >
+        Sign Up
+      </button>
+    </div>
+  </form>
+);
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col md:flex-row">
-      <div className="flex basis-1/2 items-center justify-center bg-white p-20 md:p-10">
-        <img src="/raven.svg" alt="The Raven" />
-      </div>
-      <div className="flex basis-1/2 items-center justify-center p-10">
-        <form className="flex-1">
-          <div className="space-y-5">
-            <div>
-              <label
-                htmlFor="name"
-                className="mb-2 block font-serif text-lg tracking-wide text-red-700"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                className="w-full rounded-lg border border-zinc-600/90 bg-black/20 px-4 py-3 text-base text-zinc-100 transition outline-none placeholder:text-zinc-400 focus:border-zinc-300"
-              />
-            </div>
+    <main className="relative min-h-screen overflow-hidden bg-white">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[url(/raven.svg)] bg-size-[auto_400px] bg-bottom-left bg-no-repeat opacity-40 md:bg-size-[auto_500px] lg:bg-size-[auto_700px]"
+      />
 
-            <div>
-              <label
-                htmlFor="address"
-                className="mb-2 block font-serif text-lg tracking-wide text-red-700"
-              >
-                Address
-              </label>
-              <textarea
-                id="address"
-                name="address"
-                rows={4}
-                autoComplete="street-address"
-                className="w-full rounded-lg border border-zinc-600/90 bg-black/20 px-4 py-3 text-base text-zinc-100 transition outline-none placeholder:text-zinc-400 focus:border-zinc-300"
-              />
-            </div>
-
-            <label className="flex items-start gap-3 text-sm text-zinc-300">
-              <input
-                id="consent"
-                name="consent"
-                type="checkbox"
-                className="mt-0.5 h-4 w-4 rounded border border-zinc-500 bg-black/20 accent-red-700"
-              />
-              <span>I consent to my address being stored for the purpose of a mailing list</span>
-            </label>
-
-            <button
-              type="submit"
-              className="w-full rounded-lg border border-red-900 bg-red-800 px-4 py-3 text-base font-semibold tracking-wide text-red-50 transition hover:bg-red-700 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
+      <div className="relative z-10 flex min-h-screen items-center justify-end">
+        <TheForm />
       </div>
     </main>
   );
