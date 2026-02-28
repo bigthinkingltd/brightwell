@@ -1,7 +1,7 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import { NextRequest } from 'next/server';
 
-const ses = new SESClient({ region: process.env.AWS_REGION });
+const ses = new SESClient({ region: process.env.AWS_REGION ?? 'eu-west-2' });
 
 export const POST = async (request: NextRequest) => {
   const { name, email, message } = await request.json();
