@@ -157,9 +157,11 @@ export default function Home() {
       />
       <div className="flex flex-col gap-y-2 px-2 sm:px-8">
         <h3 className="text-xl font-bold text-red-600">You found the Raven!</h3>
-        <p className="text-start text-xs">Not everyone does.</p>
-        <p className="tracking-light text-xs">Those who notice will not be overlooked.</p>
-        <p className="tracking-light mb-6 text-xs">
+        <p className="text-start text-xs text-black/90">Not everyone does.</p>
+        <p className="tracking-light text-xs text-black/90">
+          Those who notice will not be overlooked.
+        </p>
+        <p className="tracking-light mb-6 text-xs text-black/90">
           If you wish to receive official correspondence from Darkwell Academy, leave your details
           below. A sealed letter will be sent to you.
         </p>
