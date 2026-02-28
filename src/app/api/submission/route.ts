@@ -6,10 +6,10 @@ const ses = new SESClient({ region: process.env.AWS_REGION ?? 'eu-west-2' });
 export const POST = async (request: NextRequest) => {
   const { name, email, message } = await request.json();
   if (!name || !email || !message) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: 'Missing important fields from body' }),
-    };
+    return NextResponse.json(
+      { error: JSON.stringify({ error: 'Missing important fields from body' }) },
+      { status: 400 },
+    );
   }
 
   const from = 'no-reply@bigthinkingpublishing.com';
@@ -29,5 +29,5 @@ export const POST = async (request: NextRequest) => {
 
   await ses.send(cmd);
 
-  return new NextResponse(null, { status: 200 });
+  return NextResponse.json('ok', { status: 200 });
 };
