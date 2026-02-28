@@ -12,6 +12,31 @@ type ReckoningPayload = {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const normalizeEnvValue = (value: string | undefined) => {
+  if (!value) return undefined;
+
+  const trimmed = value.trim();
+  if (!trimmed) return undefined;
+
+  if (
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.slice(1, -1).trim() || undefined;
+  }
+
+  return trimmed;
+};
+
+const getFirstEnv = (...keys: string[]) => {
+  for (const key of keys) {
+    const value = normalizeEnvValue(process.env[key]);
+    if (value) return value;
+  }
+
+  return undefined;
+};
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ReckoningPayload;
@@ -32,14 +57,29 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Please enter a valid email address.' }, { status: 400 });
     }
 
-    const toAddress = process.env.RECKONING_TO_EMAIL;
-    const fromAddress = process.env.RECKONING_FROM_EMAIL;
+    const toAddress = getFirstEnv(
+      'RECKONING_TO_EMAIL',
+      'NEXT_PUBLIC_RECKONING_TO_EMAIL',
+      'AMPLIFY_RECKONING_TO_EMAIL',
+    );
+    const fromAddress = getFirstEnv(
+      'RECKONING_FROM_EMAIL',
+      'NEXT_PUBLIC_RECKONING_FROM_EMAIL',
+      'AMPLIFY_RECKONING_FROM_EMAIL',
+    );
 
     if (!toAddress || !fromAddress) {
+      console.error('Missing SES config env vars', {
+        hasReckoningTo: Boolean(process.env.RECKONING_TO_EMAIL),
+        hasReckoningFrom: Boolean(process.env.RECKONING_FROM_EMAIL),
+        hasNextPublicTo: Boolean(process.env.NEXT_PUBLIC_RECKONING_TO_EMAIL),
+        hasNextPublicFrom: Boolean(process.env.NEXT_PUBLIC_RECKONING_FROM_EMAIL),
+      });
+
       return NextResponse.json(
         {
           message:
-            'Email service is not configured. Set RECKONING_TO_EMAIL and RECKONING_FROM_EMAIL.',
+            'Email service is not configured. Check RECKONING_TO_EMAIL and RECKONING_FROM_EMAIL in server environment.',
         },
         { status: 500 },
       );
