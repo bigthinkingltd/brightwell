@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 type FormSubmitEvent = Parameters<NonNullable<React.ComponentProps<'form'>['onSubmit']>>[0];
@@ -7,7 +8,6 @@ type FormSubmitEvent = Parameters<NonNullable<React.ComponentProps<'form'>['onSu
 const TheForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
-  const [statusType, setStatusType] = useState<'success' | 'error' | null>(null);
 
   const handleSubmit = async (event: FormSubmitEvent) => {
     event.preventDefault();
@@ -24,7 +24,6 @@ const TheForm = () => {
 
     setIsSubmitting(true);
     setStatusMessage(null);
-    setStatusType(null);
 
     try {
       const response = await fetch('/api/submission', {
@@ -41,14 +40,11 @@ const TheForm = () => {
         throw new Error(result.message || 'Unable to submit your request right now.');
       }
 
-      setStatusType('success');
-      setStatusMessage('Your details were sent successfully.');
+      setStatusMessage('Thank you for signing up!');
       formElement.reset();
     } catch (error) {
-      setStatusType('error');
-      setStatusMessage(
-        error instanceof Error ? error.message : 'Unable to submit your request right now.',
-      );
+      console.error(error);
+      setStatusMessage('Oops something went wrong!');
     } finally {
       setIsSubmitting(false);
     }
@@ -126,23 +122,31 @@ const TheForm = () => {
           third parties.
         </p>
 
-        {statusMessage ? (
-          <div className="bg-opacity-75 px-8 py-4 text-center">
-            <h1 className="title-font mb-3 text-xl font-medium text-red-900 sm:text-xl">
-              {statusMessage}
-            </h1>
+        <div className="flex items-start justify-between gap-x-10 overflow-hidden">
+          <div className="flex-1">
+            {statusMessage ? (
+              <p className="text-md my-3 block text-center font-[cursive] font-medium text-red-700">
+                {statusMessage}
+              </p>
+            ) : (
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full rounded-sm bg-red-800 px-4 py-4 font-[cursive] text-base font-semibold tracking-wide text-white transition hover:bg-red-700 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
+              >
+                {isSubmitting ? 'Sending...' : 'Sign Up'}
+              </button>
+            )}
           </div>
-        ) : (
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full rounded-sm bg-red-800 px-4 py-4 text-base font-semibold tracking-wide text-white transition hover:bg-red-700 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
+          <div className="flex-1">
+            <Link
+              href="/"
+              className="block w-full rounded-sm bg-black/80 px-4 py-4 text-center font-[cursive] text-base font-semibold tracking-wide text-white"
             >
-              {isSubmitting ? 'Sending...' : 'Sign Up'}
-            </button>
+              Go Back Home
+            </Link>
           </div>
-        )}
+        </div>
       </div>
     </form>
   );
@@ -156,7 +160,9 @@ export default function Home() {
         className="pointer-events-none absolute inset-0 bg-[url(/raven.svg)] bg-size-[auto_700px] bg-bottom-left bg-no-repeat opacity-40 lg:bg-size-[auto_900px] 2xl:bg-size-[auto_1200px]"
       />
       <div className="flex flex-col gap-y-2 px-2 sm:px-8">
-        <h3 className="text-xl font-bold text-red-600">You found the Raven!</h3>
+        <h3 className="font-[cursive] text-2xl leading-12 font-bold text-red-600">
+          You found the Raven!
+        </h3>
         <p className="text-start text-xs text-black/90">Not everyone does.</p>
         <p className="tracking-light text-xs text-black/90">
           Those who notice will not be overlooked.

@@ -43,7 +43,7 @@ export default function Home() {
           <div className="flex justify-end">
             <a
               href="/reckoning"
-              className="mt-12 w-60 items-center justify-center rounded-sm border border-white/20 bg-black/50 bg-[url('/raven_white_1.svg')] bg-size-[auto_270px] bg-top-left bg-no-repeat px-6 py-8 text-center text-lg text-white"
+              className="mt-12 w-60 items-center justify-center rounded-sm border border-white/20 bg-black/50 bg-[url('/raven_white_1.svg')] bg-size-[auto_270px] bg-top-left bg-no-repeat px-6 py-8 text-center font-[cursive] text-2xl font-semibold tracking-wider text-white"
             >
               The Reckoning
             </a>
