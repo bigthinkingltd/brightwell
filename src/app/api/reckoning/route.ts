@@ -37,6 +37,34 @@ const getFirstEnv = (...keys: string[]) => {
   return undefined;
 };
 
+const getAmplifySecrets = () => {
+  const rawSecrets = process.env.secrets ?? process.env.SECRETS;
+  if (!rawSecrets) return {} as Record<string, string>;
+
+  try {
+    const parsed = JSON.parse(rawSecrets) as Record<string, unknown>;
+    const normalizedEntries = Object.entries(parsed)
+      .map(([key, value]) => [key, normalizeEnvValue(String(value ?? ''))] as const)
+      .filter(([, value]) => Boolean(value)) as Array<[string, string]>;
+
+    return Object.fromEntries(normalizedEntries);
+  } catch {
+    return {} as Record<string, string>;
+  }
+};
+
+const getConfigValue = (secrets: Record<string, string>, ...keys: string[]) => {
+  const directEnv = getFirstEnv(...keys);
+  if (directEnv) return directEnv;
+
+  for (const key of keys) {
+    const secretValue = normalizeEnvValue(secrets[key]);
+    if (secretValue) return secretValue;
+  }
+
+  return undefined;
+};
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ReckoningPayload;
@@ -57,36 +85,70 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Please enter a valid email address.' }, { status: 400 });
     }
 
-    const toAddress = getFirstEnv(
+    const amplifySecrets = getAmplifySecrets();
+
+    const toAddress = getConfigValue(
+      amplifySecrets,
       'RECKONING_TO_EMAIL',
       'NEXT_PUBLIC_RECKONING_TO_EMAIL',
       'AMPLIFY_RECKONING_TO_EMAIL',
     );
-    const fromAddress = getFirstEnv(
+    const fromAddress = getConfigValue(
+      amplifySecrets,
       'RECKONING_FROM_EMAIL',
       'NEXT_PUBLIC_RECKONING_FROM_EMAIL',
       'AMPLIFY_RECKONING_FROM_EMAIL',
     );
 
     if (!toAddress || !fromAddress) {
-      console.error('Missing SES config env vars', {
-        hasReckoningTo: Boolean(process.env.RECKONING_TO_EMAIL),
-        hasReckoningFrom: Boolean(process.env.RECKONING_FROM_EMAIL),
-        hasNextPublicTo: Boolean(process.env.NEXT_PUBLIC_RECKONING_TO_EMAIL),
-        hasNextPublicFrom: Boolean(process.env.NEXT_PUBLIC_RECKONING_FROM_EMAIL),
-      });
+      const envPresence = {
+        RECKONING_TO_EMAIL: Boolean(process.env.RECKONING_TO_EMAIL),
+        RECKONING_FROM_EMAIL: Boolean(process.env.RECKONING_FROM_EMAIL),
+        NEXT_PUBLIC_RECKONING_TO_EMAIL: Boolean(process.env.NEXT_PUBLIC_RECKONING_TO_EMAIL),
+        NEXT_PUBLIC_RECKONING_FROM_EMAIL: Boolean(process.env.NEXT_PUBLIC_RECKONING_FROM_EMAIL),
+        AMPLIFY_RECKONING_TO_EMAIL: Boolean(process.env.AMPLIFY_RECKONING_TO_EMAIL),
+        AMPLIFY_RECKONING_FROM_EMAIL: Boolean(process.env.AMPLIFY_RECKONING_FROM_EMAIL),
+        secretsPayload: Boolean(process.env.secrets ?? process.env.SECRETS),
+        secretsReckoningTo: Boolean(amplifySecrets.RECKONING_TO_EMAIL),
+        secretsReckoningFrom: Boolean(amplifySecrets.RECKONING_FROM_EMAIL),
+      };
+
+      console.error('Missing SES config env vars', envPresence);
 
       return NextResponse.json(
         {
           message:
             'Email service is not configured. Check RECKONING_TO_EMAIL and RECKONING_FROM_EMAIL in server environment.',
+          envPresence,
         },
         { status: 500 },
       );
     }
 
-    const region = process.env.AWS_REGION ?? process.env.AWS_DEFAULT_REGION ?? 'us-east-1';
-    const sesClient = new SESv2Client({ region });
+    const region =
+      getConfigValue(amplifySecrets, 'AWS_REGION', 'AWS_DEFAULT_REGION', 'AMPLIFY_AWS_REGION') ??
+      'us-east-1';
+
+    const accessKeyId = getConfigValue(amplifySecrets, 'SES_ACCESS_KEY_ID', 'AWS_ACCESS_KEY_ID');
+    const secretAccessKey = getConfigValue(
+      amplifySecrets,
+      'SES_SECRET_ACCESS_KEY',
+      'AWS_SECRET_ACCESS_KEY',
+    );
+    const sessionToken = getConfigValue(amplifySecrets, 'SES_SESSION_TOKEN', 'AWS_SESSION_TOKEN');
+
+    const sesClient = new SESv2Client({
+      region,
+      ...(accessKeyId && secretAccessKey
+        ? {
+            credentials: {
+              accessKeyId,
+              secretAccessKey,
+              ...(sessionToken ? { sessionToken } : {}),
+            },
+          }
+        : {}),
+    });
 
     const textBody = [
       'New Reckoning form submission',
@@ -125,6 +187,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Submitted successfully.' }, { status: 200 });
   } catch (error) {
     console.error('Failed to send reckoning email', error);
+
+    if (error instanceof Error && error.name === 'CredentialsProviderError') {
+      return NextResponse.json(
+        {
+          message:
+            'AWS credentials are missing for SES. Configure Amplify compute IAM role for SES or set SES_ACCESS_KEY_ID and SES_SECRET_ACCESS_KEY.',
+        },
+        { status: 500 },
+      );
+    }
+
     return NextResponse.json(
       { message: 'We could not send your details right now. Please try again.' },
       { status: 500 },
