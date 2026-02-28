@@ -1,5 +1,5 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 const ses = new SESClient({ region: process.env.AWS_REGION ?? 'eu-west-2' });
 
@@ -20,7 +20,7 @@ export const POST = async (request: NextRequest) => {
     Destination: { ToAddresses: [to] },
     ReplyToAddresses: [email],
     Message: {
-      Subject: { Data: `Website form: ${name}` },
+      Subject: { Data: `Brightwell | The Reckoning Submission: ${name}` },
       Body: {
         Text: { Data: `From: ${name} <${email}>\n\n${message}` },
       },
@@ -29,5 +29,5 @@ export const POST = async (request: NextRequest) => {
 
   await ses.send(cmd);
 
-  return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+  return new NextResponse(null, { status: 200 });
 };
