@@ -34,3 +34,27 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Reckoning form email delivery (AWS Amplify)
+
+The form at `/reckoning` sends submissions to `POST /api/reckoning`, which sends an email via AWS SES.
+
+### Required environment variables
+
+Set these in Amplify App settings → Environment variables:
+
+- `RECKONING_TO_EMAIL` - Destination inbox for submissions.
+- `RECKONING_FROM_EMAIL` - Verified SES sender identity (email or domain address).
+- `AWS_REGION` - Region where SES is enabled (Amplify usually provides this automatically).
+
+### Amplify permissions
+
+Ensure the Amplify app execution role can send email through SES in the selected region, for example with:
+
+- `ses:SendEmail`
+- `ses:SendRawEmail`
+
+### SES notes
+
+- In SES sandbox mode, both sender and recipient addresses must be verified.
+- In production mode, only sender verification is required.
