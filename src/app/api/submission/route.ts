@@ -4,8 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 const ses = new SESClient({ region: process.env.AWS_REGION ?? 'eu-west-2' });
 
 export const POST = async (request: NextRequest) => {
-  const { name, email, message } = await request.json();
-  if (!name || !email || !message) {
+  const { name, email, address, consent } = await request.json();
+  if (!name || !email || !address) {
     return NextResponse.json(
       { error: JSON.stringify({ error: 'Missing important fields from body' }) },
       { status: 400 },
@@ -20,9 +20,11 @@ export const POST = async (request: NextRequest) => {
     Destination: { ToAddresses: [to] },
     ReplyToAddresses: [email],
     Message: {
-      Subject: { Data: `Brightwell | The Reckoning Submission: ${name}` },
+      Subject: { Data: `Brightwell, The Reckoning | Submission from ${name}` },
       Body: {
-        Text: { Data: `From: ${name} <${email}>\n\n${message}` },
+        Text: {
+          Data: `From: ${name} <${email}>\n\nAddress: ${address}\n\nConsent: ${consent ? 'Has given consent' : 'Has NOT given consent'}`,
+        },
       },
     },
   });
