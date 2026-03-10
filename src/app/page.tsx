@@ -32,22 +32,20 @@ export default function Home() {
       <div className="flex flex-col min-h-screen px-2 md:px-10 gap-y-8 md:gap-y-20">
         <div className="h-[60vh]">
           <div className="flex h-full flex-col items-end justify-end gap-y-8 md:gap-y-12">
-            <p className="text-sm tracking-[0.35em] text-yellow-100/90 drop-shadow md:text-3xl">
-              WELCOME TO
-            </p>
-
             <h1 className="font-serif text-5xl md:text-8xl md:tracking-widest leading-[1.1] font-bold tracking-wider drop-shadow-[0_6px_18px_rgba(0,0,0,0.55)] text-end">
+              <span className="flex text-md md:text-lg tracking-[0.25em] text-yellow-100/90">
+                WELCOME TO
+              </span>
+
               <span className="bg-linear-to-b from-yellow-200 via-yellow-400 to-yellow-700 bg-clip-text text-transparent">
                 BRIGHTWELL
-              </span>
-              <br />
-              <span className="bg-linear-to-b from-yellow-200 via-yellow-400 to-yellow-700 bg-clip-text text-transparent">
+                <br />
                 ACADEMY
               </span>
             </h1>
 
             <p
-              className="flex flex-row text-sm md:text-xl gap-x-2 tracking-[0.25em] text-yellow-100/90 drop-shadow"
+              className="flex flex-row text-sm md:text-lg gap-x-2 tracking-[0.25em] text-yellow-100/90 drop-shadow"
               style={{
                 textShadow:
                   '0 0 2px rgba(255,245,210,.65), 0 0 10px rgba(224,180,91,.35), 0 1px 0 #8c6428, 0 2px 6px rgba(70,35,5,.16)',
@@ -63,7 +61,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-center md:justify-end gap-y-2 md:gap-x-6">
           <a
             href="https://shop.bigthinkingpublishing.com/products/the-wonderchild-the-brightwell-chronicles-book-1"
-            className="flex w-50 h-24 md:w-80 md:h-44 items-center justify-center rounded-sm border border-white/20 transition-colors duration-300 hover:border-[#e0b45b]"
+            className="flex w-50 h-24 md:w-70 md:h-30 items-center justify-center rounded-sm border border-white/20 transition-colors duration-300 hover:border-[#e0b45b]"
             style={chroniclesCardStyle}
             target="_blank"
           >
@@ -80,7 +78,7 @@ export default function Home() {
             </span>
           </a>
           <a
-            className="flex justify-center w-50 h-24 md:w-80 md:h-44 items-center rounded-sm border border-white/20 bg-black bg-[url('/raven_white_1.svg')] bg-size-[auto_270px] bg-top-left bg-no-repeat px-6 font-[cursive] text-lg md:text-2xl font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+            className="flex justify-center w-50 h-24 md:w-70 md:h-30 items-center rounded-sm border border-white/20 bg-black bg-[url('/raven_white_1.svg')] bg-size-[auto_270px] bg-top-left bg-no-repeat px-6 font-[cursive] text-lg md:text-2xl font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
             href="/reckoning"
           >
             The Reckoning
