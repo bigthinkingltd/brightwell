@@ -43,9 +43,19 @@ const TheForm = () => {
 
       setStatusMessage('Thank you for signing up!');
       formElement.reset();
+
+      setTimeout(() => {
+      setStatusMessage(null);
+      }, 3000); 
+
     } catch (error) {
       console.error(error);
       setStatusMessage('Oops something went wrong!');
+
+      setTimeout(() => { 
+      setStatusMessage(null);    
+      }, 3000);
+
     } finally {
       setIsSubmitting(false);
     }
