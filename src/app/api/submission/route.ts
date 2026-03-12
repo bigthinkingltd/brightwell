@@ -41,7 +41,7 @@ export const POST = async (request: NextRequest) => {
 
 export const POST = async (request: NextRequest) => {
   try {
-    const { name, email, address, consent } = await request.json();
+    const { name, email, address, consent, age_permission } = await request.json();
 
     if (!name || !email || !address) {
       return NextResponse.json(
@@ -49,6 +49,13 @@ export const POST = async (request: NextRequest) => {
         { status: 400 }
       );
     }
+
+    if (!age_permission) {
+      return NextResponse.json(
+        { message: 'You must confirm you are 18 or over OR have the consent of an adult'},
+        { status: 400 }
+      );
+    };
 
     const { error } = await supabase
       .from('reckoning_signup')
@@ -58,6 +65,7 @@ export const POST = async (request: NextRequest) => {
           email,
           address,
           mailing_consent: consent,
+          age_permission,
         },
       ]);
 

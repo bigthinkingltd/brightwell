@@ -20,6 +20,7 @@ const TheForm = () => {
       email: String(formData.get('email') ?? '').trim(),
       address: String(formData.get('address') ?? '').trim(),
       consent: formData.get('consent') === 'on',
+      age_permission: formData.get('age_permission') === 'on',
     };
 
     setIsSubmitting(true);
@@ -97,6 +98,20 @@ const TheForm = () => {
             className="w-full rounded-sm border-2 border-red-500/80 px-2 py-2 text-base shadow-sm transition outline-none placeholder:text-sm placeholder:text-gray-500 placeholder:italic focus:border-zinc-700"
           />
         </div>
+
+        <label className="flex items-start justify-center gap-2 text-sm text-red-600">
+          <input
+            id="age_permission"
+            name="age_permission"
+            type="checkbox"
+            required
+            className="mt-0.5 h-4 w-4 rounded border border-zinc-500 bg-white accent-red-700"
+          />
+          <span>I am over 18 OR I have permission from an adult to give my address</span>
+        </label>
+
+
+
 
         <label className="flex items-start justify-center gap-2 text-sm text-red-600">
           <input
