@@ -1,6 +1,6 @@
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
+//import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '../../../lib/supabase';
+import { supabase } from '../../../lib/SupabaseAdmin';
 
 export const runtime = 'nodejs';
 
