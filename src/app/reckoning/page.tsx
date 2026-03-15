@@ -50,7 +50,7 @@ const TheForm = () => {
 
     } catch (error) {
       console.error(error);
-      setStatusMessage('Oops something went wrong!');*/
+      setStatusMessage('Oops something went wrong!');
 
       setTimeout(() => { 
         setStatusMessage(null);    
