@@ -75,6 +75,7 @@ const TheForm = () => {
             placeholder="Lysandra Quill"
             autoComplete="name"
             required
+            maxLength={100}
             className="w-full rounded-sm border-2 border-red-500/80 px-2 py-2 text-base shadow-sm transition outline-none placeholder:text-sm placeholder:text-gray-500 placeholder:italic focus:border-zinc-700"
           />
         </div>
@@ -90,6 +91,7 @@ const TheForm = () => {
             placeholder="lysandra.quill@brightwell.academy"
             autoComplete="email"
             required
+            maxLength={250}
             className="w-full rounded-sm border-2 border-red-500/80 px-2 py-2 text-base shadow-sm transition outline-none placeholder:text-sm placeholder:text-gray-500 placeholder:italic focus:border-zinc-700"
           />
         </div>
@@ -105,6 +107,7 @@ const TheForm = () => {
             placeholder="Brightwell Academy"
             autoComplete="street-address"
             required
+            maxLength={500}
             className="w-full rounded-sm border-2 border-red-500/80 px-2 py-2 text-base shadow-sm transition outline-none placeholder:text-sm placeholder:text-gray-500 placeholder:italic focus:border-zinc-700"
           />
         </div>
