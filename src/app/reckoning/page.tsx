@@ -48,9 +48,18 @@ const TheForm = () => {
       setStatusMessage(null);
       }, 3000); 
 
-    } catch (error) {
+    /*} catch (error) {
       console.error(error);
-      setStatusMessage('Oops something went wrong!');
+      setStatusMessage('Oops something went wrong!');*/
+        } catch (error) {
+      console.error(error);
+      setStatusMessage(
+        error instanceof Error ? error.message : 'Oops something went wrong!'
+      );
+
+      setTimeout(() => { 
+        setStatusMessage(null);    
+      }, 3000);
 
       setTimeout(() => { 
       setStatusMessage(null);    
