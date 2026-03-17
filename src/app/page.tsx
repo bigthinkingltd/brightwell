@@ -58,15 +58,15 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center md:justify-end gap-y-2 md:gap-x-6">
+        <div className="flex flex-col md:flex-row items-center md:justify-end gap-y-1 md:gap-x-4">
           <a
             href="https://www.waterstones.com/book/the-wonderchild/kate-simkins/9781917842631"
-            className="flex w-50 h-24 md:w-70 md:h-30 items-center justify-center rounded-sm border border-white/20 transition-colors duration-300 hover:border-[#e0b45b]"
+            className="flex w-32 h-16 md:w-44 md:h-20 items-center justify-center rounded-sm border border-white/20 transition-colors duration-300 hover:border-[#e0b45b]"
             style={chroniclesCardStyle}
             target="_blank"
           >
             <span
-              className="flex flex-col items-center font-semibold uppercase text-[#e0b45b] text-base md:text-xl"
+              className="flex flex-col items-center font-semibold uppercase text-[#e0b45b] text-sm md:text-base"
               style={{
                 textShadow:
                   '0 0 1px rgba(255,245,210,.5), 0 1px 0 #8c6428, 0 2px 6px rgba(70,35,5,.16)',
@@ -76,26 +76,32 @@ export default function Home() {
               <span>WONDERCHILD</span>
             </span>
           </a>
+
+              {/*buttons on the page*/}
           <a
-            className="flex justify-center w-50 h-24 md:w-70 md:h-30 items-center rounded-sm border border-white/20 bg-black bg-[url('/raven_white_1.svg')] bg-size-[auto_270px] bg-top-left bg-no-repeat px-6 font-[cursive] text-lg md:text-2xl font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
-            href="/reckoning"
-          >
+            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-black bg-[url('/raven_white_1.svg')] bg-size-[auto_180px] bg-top-left bg-no-repeat px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+            href="/reckoning">
             The Reckoning
           </a>
 
-                    <a
-            className="flex justify-center w-50 h-24 md:w-70 md:h-30 items-center rounded-sm border border-white/20 bg-[#2e3a2f] px-6 font-[cursive] text-lg md:text-2xl font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
-            href="/find-my-house"
-          >
+          <a
+            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#2e3a2f] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+            href="/find-my-house">
             Find My House
           </a>
 
-                    <a
-            className="flex justify-center w-50 h-24 md:w-70 md:h-30 items-center rounded-sm border border-white/20 bg-[#3a2e2e] px-6 font-[cursive] text-lg md:text-2xl font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
-            href="history"
-          >
+          <a
+            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#3a2e2e] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+            href="history">
             History
           </a>
+
+          <a
+            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#3a2e2e] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+            href="">
+            XI
+          </a>
+
         </div>
       </div>
     </section>
