@@ -73,8 +73,7 @@ export default function Home() {
               }}
             >
               <span>THE</span>
-              <span>BRIGHTWELL</span>
-              <span>CHRONICLES</span>
+              <span>WONDERCHILD</span>
             </span>
           </a>
           <a
