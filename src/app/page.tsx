@@ -73,8 +73,7 @@ export default function Home() {
               }}
             >
               <span>THE</span>
-              <span>BRIGHTWELL</span>
-              <span>CHRONICLES</span>
+              <span>WONDERCHILD</span>
             </span>
           </a>
           <a
@@ -82,6 +81,20 @@ export default function Home() {
             href="/reckoning"
           >
             The Reckoning
+          </a>
+
+                    <a
+            className="flex justify-center w-50 h-24 md:w-70 md:h-30 items-center rounded-sm border border-white/20 bg-[#2e3a2f] px-6 font-[cursive] text-lg md:text-2xl font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+            href="/find-my-house"
+          >
+            Find My Housse
+          </a>
+
+                    <a
+            className="flex justify-center w-50 h-24 md:w-70 md:h-30 items-center rounded-sm border border-white/20 bg-[#3a2e2e] px-6 font-[cursive] text-lg md:text-2xl font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+            href="history"
+          >
+            History
           </a>
         </div>
       </div>
