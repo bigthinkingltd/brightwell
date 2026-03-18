@@ -1,4 +1,3 @@
-//placeholder text
 
 export default function FindMyHousePage() {
   return (
