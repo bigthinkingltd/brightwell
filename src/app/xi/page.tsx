@@ -37,7 +37,7 @@ export default function XIPage() {
           </h1>
 
           <p className="mx-auto max-w-2xl text-sm leading-7 text-[#d6c7a1] md:text-base">
-            Explore the documents below. Select a document window to open it in a larger reading view.
+            Archived lesson delivered by Adelaide Thorne. Does not conform to Brightwell Academy syllabus.
           </p>
         </div>
 
