@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import TheRealmWars from '../content/TheRealmWars';
 import TheUnderkinUprising from '../content/TheUnderkinUprising';
-import Tab3 from '../content/Tab3';
+import StoneSong from '../content/StoneSong';
 
 const tabs = [
   {
@@ -21,9 +21,9 @@ const tabs = [
     inactiveClasses: 'bg-[#101915] text-white/70 hover:bg-[#16221c] hover:text-white',
   },
   {
-    id: 'Tab3',
-    title: 'Tab3',
-    component: Tab3,
+    id: 'Stone-Song',
+    title: 'Stone Song',
+    component: StoneSong,
     activeClasses: 'border-[#6d5db8] bg-[#171327] text-[#c5bcff]',
     inactiveClasses: 'bg-[#12101d] text-white/70 hover:bg-[#1a1729] hover:text-white',
   },
