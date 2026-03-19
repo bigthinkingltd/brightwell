@@ -102,6 +102,18 @@ export default function Home() {
             XI
           </a>
 
+          <a
+            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#3a2e2e] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+            href="">
+            About Brightwell
+          </a>
+
+          <a
+            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#3a2e2e] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+            href="">
+            Darkwell
+          </a>
+
         </div>
       </div>
     </section>
