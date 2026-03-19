@@ -178,7 +178,7 @@ export default function PrivacyTermsPage() {
           <div className="space-y-3">
             <h3 className="font-serif text-xl text-gray-800">Shipping</h3>
             <p className="leading-7 text-gray-700">
-              Orders will be processed within [X] working days and shipped via
+              Orders will be processed within 7 working days and shipped via
               our chosen delivery service.
             </p>
             <p className="leading-7 text-gray-700">
