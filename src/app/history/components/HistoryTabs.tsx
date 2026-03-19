@@ -2,7 +2,7 @@
 'use client';
 import { useState } from 'react';
 import TheRealmWars from '../content/TheRealmWars';
-import Tab2 from '../content/Tab2';
+import TheUnderkinUprising from '../content/TheUnderkinUprising';
 import Tab3 from '../content/Tab3';
 
 const tabs = [
@@ -14,9 +14,9 @@ const tabs = [
     inactiveClasses: 'bg-[#1a140d] text-white/70 hover:bg-[#241b12] hover:text-white',
   },
   {
-    id: 'Tab2',
-    title: 'Tab2',
-    component: Tab2,
+    id: 'The-Underkin-Uprising',
+    title: 'The Underkin Uprising',
+    component: TheUnderkinUprising,
     activeClasses: 'border-[#4f8f73] bg-[#11231c] text-[#9ed6bd]',
     inactiveClasses: 'bg-[#101915] text-white/70 hover:bg-[#16221c] hover:text-white',
   },
