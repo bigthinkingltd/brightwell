@@ -133,6 +133,14 @@ export default function Home() {
 
         </div>
       </div>
+
+
+
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/40 hover:text-white/70 transition-colors duration-300">
+        <a href="/privacy-terms">
+          Privacy and Terms
+        </a>
+      </div>
     </section>
   );
 }
