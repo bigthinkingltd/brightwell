@@ -5,9 +5,15 @@ export default function StoneSong() {
         <h2 className="text-3xl font-bold text-[#c5bcff] md:text-4xl">
           Stone Song
         </h2>
-        <p className="mt-3 max-w-3xl text-white/75">
-        This is placeholder text. The website is currently under development and will be updated soon!
-        </p>
+
+        <div className="mt-3 max-w-3xl text-white/75 space-y-2">
+          <p>Black stone, red seam,</p>
+          <p>Whispers in the dark dream.</p>
+          <p>Pick it once, pick it twice,</p>
+          <p>Lose a brother, pay the price.</p>
+          <p>Ashcrombe, Ironwatch, keep the gate tight,</p>
+          <p>The shadows will beat back the candle light.</p>
+        </div>
       </div>
     </article>
   );
