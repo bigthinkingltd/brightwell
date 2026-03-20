@@ -1,26 +1,26 @@
 'use client';
 
 import { useState } from 'react';
-import Tab1 from '../content/Tab1';
+import AboutBrightwell from '../content/AboutBrightwell';
 import Tab2 from '../content/Tab2';
 import Tab3 from '../content/Tab3';
 
 const tabs = [
-  { id: 'tab1', title: 'Tab 1', component: Tab1 },
+  { id: 'AboutBrightwell', title: 'About Brightwell', component: AboutBrightwell },
   { id: 'tab2', title: 'Tab 2', component: Tab2 },
   { id: 'tab3', title: 'Tab 3', component: Tab3 },
 ];
 
 export default function AboutBrightwellTabs() {
     //stores which tab is currently active 
-  const [activeTab, setActiveTab] = useState('tab1');
+  const [activeTab, setActiveTab] = useState('AboutBrightwell');
 
   //finds the component that matches the active tab
   const ActiveComponent = tabs.find((tab) => tab.id === activeTab)?.component;
 
   return (
-    <div className="flex min-h-screen bg-[#fcfaf6]">
-      <div className="flex min-h-screen w-[58px] shrink-0 flex-col">
+    <div className="flex bg-[#fcfaf6]">
+      <div className="sticky top-0 flex h-screen w-[58px] shrink-0 flex-col">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
 
