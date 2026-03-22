@@ -12,6 +12,7 @@ import { ScreenState } from './types';
 
 import XIIntro from './components/XIIntro';
 import XIQuestionCard from './components/XIQuestionCard';
+import XIAccessDenied from './components/XIAccessDenied';
 
 export default function XIPage() {
     //Tracks which screen user is currently on
@@ -107,22 +108,9 @@ export default function XIPage() {
 
 
     //Access Denied screen
-    return (
-    <div className="flex min-h-screen items-center justify-center bg-[#111111] px-6 text-center text-white">
-      <div>
-        <h1 className="text-3xl font-semibold md:text-5xl">Access denied</h1>
-        <p className="mt-4 text-white/80">
-          One or more answers were incorrect. Please try again.
-        </p>
+    if (screen === 'denied') {
+      return <XIAccessDenied onRestart={resetQuiz} />;
+    }
 
-        <button
-          type="button"
-          onClick={resetQuiz}
-          className="mt-8 rounded border border-white px-6 py-3"
-        >
-          Return to start
-        </button>
-      </div>
-    </div>
-  );
+
 }
