@@ -13,6 +13,7 @@ import { ScreenState } from './types';
 import XIIntro from './components/XIIntro';
 import XIQuestionCard from './components/XIQuestionCard';
 import XIAccessDenied from './components/XIAccessDenied';
+import XIPdfLibrary from './components/XIPdfLibrary';
 
 export default function XIPage() {
     //Tracks which screen user is currently on
@@ -71,7 +72,7 @@ export default function XIPage() {
         const updatedAnswers = [...selectedAnswers, currentSelectedAnswer];
 
         const allCorrect = updatedAnswers.every((answer, index) => {
-            return answer === questions[index].correctAnswerID;
+            return answer === questions[index].correctAnswerId;
         });
 
         if (allCorrect) {
@@ -110,6 +111,11 @@ export default function XIPage() {
     //Access Denied screen
     if (screen === 'denied') {
       return <XIAccessDenied onRestart={resetQuiz} />;
+    }
+
+    //Access granted screen
+    if (screen === 'granted') {
+      return <XIPdfLibrary onReturnToStart={resetQuiz} />;
     }
 
 
