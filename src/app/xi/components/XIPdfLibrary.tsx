@@ -3,6 +3,10 @@
 
 'use client';
 
+import { useState } from 'react';
+import PDFCard from './PDFCard';
+import PDFViewer from './PDFViewer';
+
 type XIPdfLibraryProps = {
   onReturnToStart: () => void;
 };
@@ -23,13 +27,20 @@ const documents = [
 export default function XIPdfLibrary({
   onReturnToStart,
 }: XIPdfLibraryProps) {
+  const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
+
+  function handleOpenPdf(fileUrl: string) {
+    setSelectedPdf(fileUrl);
+  }
+
   return (
     <div className="min-h-screen bg-[#111111] px-6 py-12 text-white">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-semibold md:text-5xl">
             Access granted
           </h1>
+
           <p className="mt-4 text-white/80 md:text-lg">
             Archive unlocked. Select a document below to continue.
           </p>
@@ -37,20 +48,16 @@ export default function XIPdfLibrary({
 
         <div className="grid gap-6 md:grid-cols-2">
           {documents.map((document) => (
-            <div
+            <PDFCard
               key={document.id}
-              className="rounded border border-white/20 bg-white/5 p-6"
-            >
-              <h2 className="text-2xl font-medium">{document.title}</h2>
-
-              <p className="mt-3 text-sm text-white/70">
-                PDF file ready for display.
-              </p>
-
-              <p className="mt-4 text-xs text-white/40">{document.fileUrl}</p>
-            </div>
+              title={document.title}
+              fileUrl={document.fileUrl}
+              onOpen={handleOpenPdf}
+            />
           ))}
         </div>
+
+        {selectedPdf && <PDFViewer fileUrl={selectedPdf} />}
 
         <div className="mt-10 flex justify-center">
           <button
