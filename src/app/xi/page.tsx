@@ -10,3 +10,9 @@ import { useState } from 'react';
 import { questions } from './questions';
 import { ScreenState } from './types';
 
+export default function XIPage() {
+    //Tracks which screen user is currently on
+    const [screen, setScreen] = useState<ScreenState>('intro');
+
+
+}
