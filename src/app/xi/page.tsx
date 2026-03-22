@@ -11,6 +11,7 @@ import { questions } from './questions';
 import { ScreenState } from './types';
 
 import XIIntro from './components/XIIntro';
+import XIQuestionCard from './components/XIQuestionCard';
 
 export default function XIPage() {
     //Tracks which screen user is currently on
@@ -91,57 +92,18 @@ export default function XIPage() {
 
     //Question Screen
     if (screen === 'question') {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-[#111111] px-6 py-12 text-white">
-        <div className="w-full max-w-2xl">
-          <p className="mb-4 text-sm uppercase tracking-[0.2em] text-white/60">
-            Question {currentQuestionIndex + 1} of {questions.length}
-          </p>
-
-          <h1 className="mb-8 text-2xl font-semibold md:text-4xl">
-            {currentQuestion.question}
-          </h1>
-
-          <div className="space-y-4">
-            {currentQuestion.options.map((option) => (
-              <button
-                key={option.id}
-                type="button"
-                onClick={() => handleAnswerSelect(option.id)}
-                className={`w-full rounded border px-4 py-4 text-left transition ${
-                  currentSelectedAnswer === option.id
-                    ? 'border-white bg-white text-black'
-                    : 'border-white/30 bg-transparent text-white hover:border-white'
-                }`}
-              >
-                {option.text}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-8">
-            {currentQuestionIndex < questions.length - 1 ? (
-              <button
-                type="button"
-                onClick={handleNextQuestion}
-                disabled={!currentSelectedAnswer}
-                className="rounded border border-white px-6 py-3 disabled:cursor-not-allowed disabled:opacity-40">
-                Next
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={handleSubmit}
-                disabled={!currentSelectedAnswer}
-                className="rounded border border-white px-6 py-3 disabled:cursor-not-allowed disabled:opacity-40">
-                Submit
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
+      return (
+        <XIQuestionCard
+          question={currentQuestion}
+          currentQuestionIndex={currentQuestionIndex}
+          totalQuestions={questions.length}
+          selectedAnswer={currentSelectedAnswer}
+          onSelectAnswer={handleAnswerSelect}
+          onNext={handleNextQuestion}
+          onSubmit={handleSubmit}
+        />
+      );
+    }
 
 
     //Access Denied screen
