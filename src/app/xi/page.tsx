@@ -10,6 +10,8 @@ import { useState } from 'react';
 import { questions } from './questions';
 import { ScreenState } from './types';
 
+import XIIntro from './components/XIIntro';
+
 export default function XIPage() {
     //Tracks which screen user is currently on
     const [screen, setScreen] = useState<ScreenState>('intro');
@@ -83,18 +85,7 @@ export default function XIPage() {
 
     //Intro screen
     if (screen === 'intro') {
-        return (
-            <div className="">
-                <div>
-                    <p className="">
-                        This page has been archived
-                    </p>
-                    <p className="">
-                        To access, please press anywhere on the screen and complete the security questions.
-                    </p>
-                </div>
-            </div>
-        );
+      return <XIIntro onStart={startQuiz} />;
     }
 
 
