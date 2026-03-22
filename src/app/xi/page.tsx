@@ -14,5 +14,22 @@ export default function XIPage() {
     //Tracks which screen user is currently on
     const [screen, setScreen] = useState<ScreenState>('intro');
 
+    //tracks which question the user is currenlty answering 
+    const [currentQuestionIndex, setcurrentQuestionIndex] = useState(0);
+
+    //stores users selected abswers in order
+    const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
+
+    //Stores currently selected answers in order for the question being shown
+    const [currentSelectedAnswer, setcurrentSelectedAnswer] = useState<string>('');
+
+    //The question that is currently being displayed
+    const currentQuestion = questions[currentQuestionIndex];
+
+
+
+
+
+
 
 }
