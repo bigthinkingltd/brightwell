@@ -16,4 +16,28 @@ export const questions: Question[] = [
         correctAnswerId: 'd',
     },
 
+        {
+        id: 2,
+        question: 'The question goes here dec',
+        options: [
+            { id: 'a', text: 'Option for answer' },
+            { id: 'b', text: 'Option for answer' },
+            { id: 'c', text: 'Option for answer' },
+            { id: 'd', text: 'Option for answer' },
+        ],
+        correctAnswerId: 'a',
+    },
+
+        {
+        id: 3,
+        question: 'The question goes here dec',
+        options: [
+            { id: 'a', text: 'Option for answer' },
+            { id: 'b', text: 'Option for answer' },
+            { id: 'c', text: 'Option for answer' },
+            { id: 'd', text: 'Option for answer' },
+        ],
+        correctAnswerId: 'b',
+    },
+
 ];
