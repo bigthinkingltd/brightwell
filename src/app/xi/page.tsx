@@ -35,6 +35,14 @@ export default function XIPage() {
         setcurrentSelectedAnswer('');
     }
 
+    //qwerty
+    function resetQuiz() {
+        setScreen('intro');
+        setcurrentQuestionIndex(0);
+        setSelectedAnswers([]);
+        setcurrentSelectedAnswer('');
+    }
+
 
 
 
