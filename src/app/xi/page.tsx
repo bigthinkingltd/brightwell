@@ -98,7 +98,7 @@ export default function XIPage() {
     }
 
 
-      //Question Screen
+    //Question Screen
     if (screen === 'question') {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#111111] px-6 py-12 text-white">
@@ -134,8 +134,7 @@ export default function XIPage() {
                 type="button"
                 onClick={handleNextQuestion}
                 disabled={!currentSelectedAnswer}
-                className="rounded border border-white px-6 py-3 disabled:cursor-not-allowed disabled:opacity-40"
-              >
+                className="rounded border border-white px-6 py-3 disabled:cursor-not-allowed disabled:opacity-40">
                 Next
               </button>
             ) : (
@@ -143,8 +142,7 @@ export default function XIPage() {
                 type="button"
                 onClick={handleSubmit}
                 disabled={!currentSelectedAnswer}
-                className="rounded border border-white px-6 py-3 disabled:cursor-not-allowed disabled:opacity-40"
-              >
+                className="rounded border border-white px-6 py-3 disabled:cursor-not-allowed disabled:opacity-40">
                 Submit
               </button>
             )}
@@ -155,12 +153,23 @@ export default function XIPage() {
   }
 
 
+    //Access Denied screen
+    return (
+    <div className="flex min-h-screen items-center justify-center bg-[#111111] px-6 text-center text-white">
+      <div>
+        <h1 className="text-3xl font-semibold md:text-5xl">Access denied</h1>
+        <p className="mt-4 text-white/80">
+          One or more answers were incorrect. Please try again.
+        </p>
 
-
-
-
-
-
-
-
+        <button
+          type="button"
+          onClick={resetQuiz}
+          className="mt-8 rounded border border-white px-6 py-3"
+        >
+          Return to start
+        </button>
+      </div>
+    </div>
+  );
 }
