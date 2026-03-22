@@ -27,6 +27,18 @@ export default function XIPage() {
     const currentQuestion = questions[currentQuestionIndex];
 
 
+    //Function to start the quiz from the intro screen
+    function startQuiz() {
+        setScreen('question');
+        setcurrentQuestionIndex(0);
+        setSelectedAnswers([]);
+        setcurrentSelectedAnswer('');
+    }
+
+
+
+
+
 
 
 
