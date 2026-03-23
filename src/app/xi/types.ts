@@ -11,7 +11,7 @@ export type Question = {
     id: number;                 //Question number
     question: string;           //Question text
     options: AnswerOption[];    //Array of 4 possible answers 
-    correctAnswerID: string;    //The correct option id
+    correctAnswerId: string;    //The correct option id
 };
 
 //Represents the different screens in the XI flow
