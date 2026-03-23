@@ -33,9 +33,15 @@ export default function XIPdfLibrary({
     setSelectedPdf(fileUrl);
   }
 
+  function handleClosePdf() {
+    setSelectedPdf(null);
+  }
+
   return (
     <div className="min-h-screen bg-[#111111] px-6 py-12 text-white">
       <div className="mx-auto max-w-6xl">
+        
+        {/* Header */}
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-semibold md:text-5xl">
             Access granted
@@ -46,6 +52,7 @@ export default function XIPdfLibrary({
           </p>
         </div>
 
+        {/* Document Grid */}
         <div className="grid gap-6 md:grid-cols-2">
           {documents.map((document) => (
             <PDFCard
@@ -57,8 +64,15 @@ export default function XIPdfLibrary({
           ))}
         </div>
 
-        {selectedPdf && <PDFViewer fileUrl={selectedPdf} />}
+        {/* Viewer */}
+        {selectedPdf && (
+          <PDFViewer
+            fileUrl={selectedPdf}
+            onClose={handleClosePdf}
+          />
+        )}
 
+        {/* Return Button */}
         <div className="mt-10 flex justify-center">
           <button
             type="button"
@@ -68,6 +82,7 @@ export default function XIPdfLibrary({
             Return to start
           </button>
         </div>
+
       </div>
     </div>
   );
