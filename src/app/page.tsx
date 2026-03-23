@@ -58,51 +58,97 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center md:justify-end gap-y-1 md:gap-x-4">
-          <a
-            href="https://www.waterstones.com/book/the-wonderchild/kate-simkins/9781917842631"
-            className="flex w-32 h-16 md:w-44 md:h-20 items-center justify-center rounded-sm border border-white/20 transition-colors duration-300 hover:border-[#e0b45b]"
-            style={chroniclesCardStyle}
-            target="_blank"
-          >
-            <span
-              className="flex flex-col items-center font-semibold uppercase text-[#e0b45b] text-sm md:text-base"
-              style={{
-                textShadow:
-                  '0 0 1px rgba(255,245,210,.5), 0 1px 0 #8c6428, 0 2px 6px rgba(70,35,5,.16)',
-              }}
+        {/*2 perm. rows */}
+        <div className="flex flex-col items-center md:items-end gap-y-4">
+
+          {/* Top row buttons*/}
+          <div className="flex flex-row flex-wrap items-center justify-center md:justify-end gap-3 md:gap-4">
+            <a
+              href="https://www.waterstones.com/book/the-wonderchild/kate-simkins/9781917842631"
+              className="flex w-32 h-16 md:w-44 md:h-20 items-center justify-center rounded-sm border border-white/20 transition-colors duration-300 hover:border-[#e0b45b]"
+              style={chroniclesCardStyle}
+              target="_blank"
             >
-              <span>THE</span>
-              <span>WONDERCHILD</span>
-            </span>
-          </a>
+              <span
+                className="flex flex-col items-center font-semibold uppercase text-[#e0b45b] text-sm md:text-base"
+                style={{
+                  textShadow:
+                    '0 0 1px rgba(255,245,210,.5), 0 1px 0 #8c6428, 0 2px 6px rgba(70,35,5,.16)',
+                }}
+              >
+                <span>THE</span>
+                <span>WONDERCHILD</span>
+              </span>
+            </a>
 
-              {/*buttons on the page*/}
-          <a
-            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-black bg-[url('/raven_white_1.svg')] bg-size-[auto_180px] bg-top-left bg-no-repeat px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
-            href="/reckoning">
-            The Reckoning
-          </a>
 
-          <a
-            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#2e3a2f] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
-            href="/find-my-house">
-            Find My House
-          </a>
+            <a
+              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-black bg-[url('/raven_white_1.svg')] bg-size-[auto_180px] bg-top-left bg-no-repeat px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+              href="/reckoning"
+            >
+              The Reckoning
+            </a>
 
-          <a
-            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#3a2e2e] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
-            href="history">
-            History
-          </a>
 
-          <a
-            className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#3a2e2e] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
-            href="">
-            XI
-          </a>
+            <a
+              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#2e3a2f] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+              href="/find-my-house"
+            >
+              Find My House
+            </a>
+
+             <a
+              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#1c1f24] via-[#2a2f36] to-[#3b424b] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-gray-200 transition-colors duration-300 hover:border-[#e0b45b]"
+              href="/history"
+            >
+              History
+            </a>
+          </div>
+
+
+          {/*Bottom row buttons */}
+          <div className="flex flex-row flex-wrap items-center justify-center md:justify-end gap-3 md:gap-4">
+
+            <a
+              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#0f1f2e] via-[#1a3a4f] to-[#2c5f73] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-cyan-200 transition-colors duration-300 hover:border-[#e0b45b]"
+              href="/xi"
+            >
+              XI
+            </a>
+
+            <a
+              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#3b2f1a] via-[#5a4422] to-[#8c6a2a] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-yellow-100 transition-colors duration-300 hover:border-[#e0b45b]"
+              href="/about-brightwell"
+            >
+              About Brightwell
+            </a>
+
+            <a
+              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#1a1023] via-[#2b1740] to-[#3a1f5a] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-purple-200 transition-colors duration-300 hover:border-[#e0b45b]"
+              href="/http://www.darkwell-academy.com"
+              target="_blank"
+            >
+              Darkwell
+            </a>
+
+            <a
+              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#0f2a1f] via-[#1f4a35] to-[#2f6f4f] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-emerald-200 transition-colors duration-300 hover:border-[#e0b45b]"
+              href="/recommended-texts"
+            >
+              Recommended Texts
+            </a>
+
+          </div>
 
         </div>
+      </div>
+
+
+
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/40 hover:text-white/70 transition-colors duration-300">
+        <a href="/privacy-terms">
+          Privacy and Terms
+        </a>
       </div>
     </section>
   );

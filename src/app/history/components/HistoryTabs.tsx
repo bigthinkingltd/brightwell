@@ -2,8 +2,8 @@
 'use client';
 import { useState } from 'react';
 import TheRealmWars from '../content/TheRealmWars';
-import Tab2 from '../content/Tab2';
-import Tab3 from '../content/Tab3';
+import TheUnderkinUprising from '../content/TheUnderkinUprising';
+import StoneSong from '../content/StoneSong';
 
 const tabs = [
   {
@@ -14,16 +14,16 @@ const tabs = [
     inactiveClasses: 'bg-[#1a140d] text-white/70 hover:bg-[#241b12] hover:text-white',
   },
   {
-    id: 'Tab2',
-    title: 'Tab2',
-    component: Tab2,
+    id: 'The-Underkin-Uprising',
+    title: 'The Underkin Uprising',
+    component: TheUnderkinUprising,
     activeClasses: 'border-[#4f8f73] bg-[#11231c] text-[#9ed6bd]',
     inactiveClasses: 'bg-[#101915] text-white/70 hover:bg-[#16221c] hover:text-white',
   },
   {
-    id: 'Tab3',
-    title: 'Tab3',
-    component: Tab3,
+    id: 'Stone-Song',
+    title: 'Stone Song',
+    component: StoneSong,
     activeClasses: 'border-[#6d5db8] bg-[#171327] text-[#c5bcff]',
     inactiveClasses: 'bg-[#12101d] text-white/70 hover:bg-[#1a1729] hover:text-white',
   },
