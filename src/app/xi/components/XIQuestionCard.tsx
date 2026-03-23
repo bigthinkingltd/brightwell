@@ -51,8 +51,8 @@ export default function XIQuestionCard({
               onClick={() => onSelectAnswer(option.id)}
               className={`w-full rounded border px-4 py-4 text-left transition ${
                 selectedAnswer === option.id
-                  ? 'border-white bg-white text-black'
-                  : 'border-white/30 bg-transparent text-white hover:border-white'
+                  ? 'border-green-500 bg-green-400 text-black'
+                  : 'border-green-300 bg-green-100 text-black hover:bg-green-200'
               }`}
             >
               {option.text}
@@ -67,7 +67,8 @@ export default function XIQuestionCard({
               type="button"
               onClick={onNext}
               disabled={!selectedAnswer}
-              className="rounded border border-white px-6 py-3 disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded border border-white/40 bg-white/10 px-6 py-3 text-white font-semibold transition 
+                        hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:opacity-40"
             >
               Next
             </button>
@@ -76,9 +77,11 @@ export default function XIQuestionCard({
               type="button"
               onClick={onSubmit}
               disabled={!selectedAnswer}
-              className="rounded border border-white px-6 py-3 disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded border border-red-500 bg-red-500 px-6 py-3 text-white font-semibold transition 
+                         hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-40
+                          shadow-[0_0_10px_rgba(255,0,0,0.6)] hover:shadow-[0_0_20px_rgba(255,0,0,0.9)]"
             >
-              Submit
+              SUBMIT
             </button>
           )}
         </div>
