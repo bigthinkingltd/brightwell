@@ -1,90 +1,122 @@
+//going to be used to control the entire flow of the quiz.
+//Decides what screen is shown -  intro, questions, denied, granted
+//Tracks current questions and answers
+//Handles the validation for pass/fail
+
+
 'use client';
 
 import { useState } from 'react';
-import PDFViewer from './components/PDFViewer';
+import { questions } from './questions';
+import { ScreenState } from './types';
+
+import XIIntro from './components/XIIntro';
+import XIQuestionCard from './components/XIQuestionCard';
+import XIAccessDenied from './components/XIAccessDenied';
+import XIPdfLibrary from './components/XIPdfLibrary';
 
 export default function XIPage() {
-  //Stores the PDF the user has clicked - Starts as null because no PDF is open at first
-  const [selectedPdf, setSelectedPdf] = useState<{
-    title: string;
-    pdfUrl: string;
-  } | null>(null);
+    //Tracks which screen user is currently on
+    const [screen, setScreen] = useState<ScreenState>('intro');
 
-  //array of PDFs shown on the page
-  const documents = [
-    {
-      title: 'Ravens',
-      pdfUrl: '/pdfs/xi/Ravens.pdf',
-    },
-    {
-      title: 'April',
-      pdfUrl: '/pdfs/xi/April.pdf',
-    },
-  ];
+    //tracks which question the user is currenlty answering 
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
-  return (
-    <div className="relative min-h-screen bg-[#18120d] px-6 py-12 text-white">
-      {/* Background styling */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,180,91,0.12),_transparent_40%)]" />
-      <div className="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,0.4)]" />
+    //stores users selected abswers in order
+    const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
 
-      {/* Main content wrapper */}
-      <div className="relative z-10 mx-auto max-w-5xl">
-        {/* Page heading */}
-        <div className="mb-12 text-center">
-          <h1 className="mb-4 text-3xl font-bold text-[#f3e7c2] md:text-5xl">
-            XI
-          </h1>
+    //Stores currently selected answers in order for the question being shown
+    const [currentSelectedAnswer, setCurrentSelectedAnswer] = useState<string>('');
 
-          <p className="mx-auto max-w-2xl text-sm leading-7 text-[#d6c7a1] md:text-base">
-            Archived lesson delivered by Adelaide Thorne. Does not conform to Brightwell Academy syllabus.
-          </p>
-        </div>
+    //The question that is currently being displayed
+    const currentQuestion = questions[currentQuestionIndex];
 
-        {/* PDF preview cards */}
-        <div className="space-y-12">
-          {documents.map((document) => (
-            <PDFViewer
-              key={document.pdfUrl}
-              title={document.title}
-              pdfUrl={document.pdfUrl}
-              onOpen={() => setSelectedPdf(document)}
-            />
-          ))}
-        </div>
-      </div>
 
-      {/* Modal - only appears when a PDF has been selected */}
-      {selectedPdf && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
-          <div className="relative flex h-[90vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-[#e0b45b]/30 bg-[#16120f] shadow-2xl">
-            {/* Modal header */}
-            <div className="flex items-center justify-between border-b border-[#e0b45b]/20 px-5 py-4">
-              <h2 className="text-lg font-semibold text-[#f3e7c2] md:text-xl">
-                {selectedPdf.title}
-              </h2>
+    //Function to start the quiz from the intro screen
+    function startQuiz() {
+        setScreen('question');
+        setCurrentQuestionIndex(0);
+        setSelectedAnswers([]);
+        setCurrentSelectedAnswer('');
+    }
 
-              {/* Closes the modal */}
-              <button
-                type="button"
-                onClick={() => setSelectedPdf(null)}
-                className="rounded-full border border-[#e0b45b]/30 px-4 py-2 text-sm text-[#f3e7c2] transition hover:border-[#e0b45b] hover:text-[#e0b45b]"
-              >
-                Close
-              </button>
-            </div>
+    //Resets flow back to the intro screen
+    function resetQuiz() {
+        setScreen('intro');
+        setCurrentQuestionIndex(0);
+        setSelectedAnswers([]);
+        setCurrentSelectedAnswer('');
+    }
 
-            {/* Large PDF viewer */}
-            <div className="flex-1">
-              <iframe
-                src={selectedPdf.pdfUrl}
-                className="h-full w-full"
-                title={selectedPdf.title}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+
+    //Stores answer user clicks for the current question
+    function handleAnswerSelect(answerId: string) {
+        setCurrentSelectedAnswer(answerId);
+    }
+
+    //Moves to the next question
+    function handleNextQuestion() {
+        if (!currentSelectedAnswer) return;
+
+        const updatedAnswers = [...selectedAnswers, currentSelectedAnswer];
+        setSelectedAnswers(updatedAnswers);
+        setCurrentSelectedAnswer('');
+
+        setCurrentQuestionIndex((prev) => prev +1);
+    }
+
+    //Final submission after last question
+    function handleSubmit() {
+        if (!currentSelectedAnswer) return;
+
+        const updatedAnswers = [...selectedAnswers, currentSelectedAnswer];
+
+        const allCorrect = updatedAnswers.every((answer, index) => {
+            return answer === questions[index].correctAnswerId;
+        });
+
+        if (allCorrect) {
+            setSelectedAnswers(updatedAnswers);
+            setScreen('granted');
+        } else {
+            setSelectedAnswers(updatedAnswers);
+            setScreen('denied');
+        }
+
+        setCurrentSelectedAnswer('');
+    }
+
+    //Intro screen
+    if (screen === 'intro') {
+      return <XIIntro onStart={startQuiz} />;
+    }
+
+
+    //Question Screen
+    if (screen === 'question') {
+      return (
+        <XIQuestionCard
+          question={currentQuestion}
+          currentQuestionIndex={currentQuestionIndex}
+          totalQuestions={questions.length}
+          selectedAnswer={currentSelectedAnswer}
+          onSelectAnswer={handleAnswerSelect}
+          onNext={handleNextQuestion}
+          onSubmit={handleSubmit}
+        />
+      );
+    }
+
+
+    //Access Denied screen
+    if (screen === 'denied') {
+      return <XIAccessDenied onRestart={resetQuiz} />;
+    }
+
+    //Access granted screen
+    if (screen === 'granted') {
+      return <XIPdfLibrary onReturnToStart={resetQuiz} />;
+    }
+
+
 }
