@@ -5,7 +5,7 @@ export type AnswerOption = 'A' | 'B' | 'C' | 'D';
 //represents the answer choice
 export type QuestionOption = {
     label: AnswerOption;
-    test: string;
+    text: string;
 };
 
 
