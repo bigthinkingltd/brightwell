@@ -30,6 +30,22 @@ export default function FindMyHousequiz() {
         return questions.every((q) => answers [q.id] !== null);
     }, [answers]);
 
+    /*updates selected answer for a specific question */
+    const handleSelectAnswer = (
+        questionId: number,
+        answer: AnswerOption
+    ) => {
+        setAnswers((prev) => ({
+            ...prev,
+            [questionId]: answer,
+        }));
+    };
+
+
+    /*qwerty */
+    
+
+
 
 
 
