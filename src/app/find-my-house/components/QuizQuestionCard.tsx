@@ -12,9 +12,9 @@ export default function QuizQuestionCard({
   onSelectAnswer,
 }: QuizQuestionCardProps) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
       {/* Displays the question number and question text */}
-      <h2 className="mb-4 text-xl font-semibold">
+      <h2 className="mb-4 text-xl font-semibold text-black">
         {question.id}. {question.question}
       </h2>
 
@@ -23,7 +23,12 @@ export default function QuizQuestionCard({
         {question.options.map((option) => (
           <label
             key={option.label}
-            className="flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 p-4 transition hover:bg-white/10"
+            className={`flex cursor-pointer items-center gap-3 rounded-xl border p-4 transition
+              ${
+                selectedAnswer === option.label
+                  ? 'border-black bg-black/5'
+                  : 'border-black/10 hover:bg-black/5'
+              }`}
           >
             {/* Radio input allows only one answer to be selected per question */}
             <input
@@ -32,11 +37,11 @@ export default function QuizQuestionCard({
               value={option.label}
               checked={selectedAnswer === option.label}
               onChange={() => onSelectAnswer(option.label)}
-              className="h-4 w-4"
+              className="h-4 w-4 accent-black"
             />
 
             {/* Displays the answer label and answer text */}
-            <span>
+            <span className="text-black">
               <span className="font-semibold">{option.label}.</span>{' '}
               {option.text}
             </span>
