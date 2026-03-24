@@ -1,6 +1,6 @@
 
 //defines valid answer options + ensures users can only select A, B, C, D
-export type AnswerOptions = 'A' | 'B' | 'C' | 'D';
+export type AnswerOption = 'A' | 'B' | 'C' | 'D';
 
 //represents the answer choice
 export type QuestionOption = {

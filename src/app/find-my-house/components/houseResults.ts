@@ -8,7 +8,7 @@ After the quiz is complete:
 - That letter is used to look up the corresponding house HERE
 */
 
-export const houseResults: Record<AnswerOption, HouseResults> = {
+export const houseResults: Record<AnswerOption, HouseResult> = {
     A: {
     houseName: 'House of Wisdom', //house name
     motto: '', //The motto for the house
