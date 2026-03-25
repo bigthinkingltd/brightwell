@@ -18,5 +18,27 @@ export default function Gallery() {
       image: '/recommended-texts/image-covers/questerling.png',
       width: 'flex-1',
     },
-  ]
+  ];
+
+  //SHould stack the images on mobile and have 3 columns on desktop
+  return (
+    <section className="h-screen snap-start bg-white">
+      <div className="flex h-full w-full flex-col md:flex-row">
+        {texts.map((text) => (
+          <div
+            key={text.id}
+            className={`flex w-full items-center justify-center md:${text.width}`}
+          >
+            <div className="flex h-full w-full items-center justify-center p-6">
+              <img
+                src={text.image}
+                alt={text.id}
+                className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-[1.02]"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
