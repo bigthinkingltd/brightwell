@@ -138,6 +138,13 @@ export default function Home() {
               Recommended Texts
             </a>
 
+            <a
+              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#0f2a1f] via-[#1f4a35] to-[#2f6f4f] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-emerald-200 transition-colors duration-300 hover:border-[#e0b45b]"
+              href="/recommended-texts"
+            >
+              Brightspell
+            </a>
+
           </div>
 
         </div>
