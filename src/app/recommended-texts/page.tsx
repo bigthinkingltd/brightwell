@@ -1,9 +1,14 @@
-export default function Page() {
+//Will be used to render intro section and the gallary section
+
+
+import Gallery from './components/Gallery';
+import IntroSection from './components/IntroSection';
+
+export default function RecommendedTextsPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center text-black">
-      <h1 className="text-xl md:text-3xl font-serif tracking-wider">
-        Text coming soon
-      </h1>
-    </div>
-  );
+    <main className="h-screen snap-y snap-mandatory overflow-y-scroll bg-white">
+      <IntroSection />
+      <Gallery />
+    </main>
+  )
 }

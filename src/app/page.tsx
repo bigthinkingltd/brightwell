@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import { cinzel } from './fonts';
 
 export default function Home() {
   const chroniclesCardStyle = {
@@ -70,7 +71,7 @@ export default function Home() {
               target="_blank"
             >
               <span
-                className="flex flex-col items-center font-semibold uppercase text-[#e0b45b] text-sm md:text-base"
+                className={`flex flex-col items-center justify-center text-center font-semibold uppercase leading-[1.1] tracking-[0.08em] text-[#e0b45b] text-sm md:text-base ${cinzel.className}`}
                 style={{
                   textShadow:
                     '0 0 1px rgba(255,245,210,.5), 0 1px 0 #8c6428, 0 2px 6px rgba(70,35,5,.16)',
@@ -83,7 +84,7 @@ export default function Home() {
 
 
             <a
-              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-black bg-[url('/raven_white_1.svg')] bg-size-[auto_180px] bg-top-left bg-no-repeat px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+              className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-black bg-[url('/raven_white_1.svg')] bg-size-[auto_180px] bg-top-left bg-no-repeat px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-white transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
               href="/reckoning"
             >
               The Reckoning
@@ -91,14 +92,14 @@ export default function Home() {
 
 
             <a
-              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#2e3a2f] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-white transition-colors duration-300 hover:border-[#e0b45b]"
+              className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-[#2e3a2f] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-white transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
               href="/find-my-house"
             >
               Find My House
             </a>
 
              <a
-              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#1c1f24] via-[#2a2f36] to-[#3b424b] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-gray-200 transition-colors duration-300 hover:border-[#e0b45b]"
+              className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#1c1f24] via-[#2a2f36] to-[#3b424b] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-gray-200 transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
               href="/history"
             >
               History
@@ -110,21 +111,21 @@ export default function Home() {
           <div className="flex flex-row flex-wrap items-center justify-center md:justify-end gap-3 md:gap-4">
 
             <a
-              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#0f1f2e] via-[#1a3a4f] to-[#2c5f73] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-cyan-200 transition-colors duration-300 hover:border-[#e0b45b]"
+              className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#0f1f2e] via-[#1a3a4f] to-[#2c5f73] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-cyan-200 transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
               href="/xi"
             >
               XI
             </a>
 
             <a
-              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#3b2f1a] via-[#5a4422] to-[#8c6a2a] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-yellow-100 transition-colors duration-300 hover:border-[#e0b45b]"
+              className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#3b2f1a] via-[#5a4422] to-[#8c6a2a] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-yellow-100 transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
               href="/about-brightwell"
             >
               About Brightwell
             </a>
 
             <a
-              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#1a1023] via-[#2b1740] to-[#3a1f5a] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-purple-200 transition-colors duration-300 hover:border-[#e0b45b]"
+              className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#1a1023] via-[#2b1740] to-[#3a1f5a] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-purple-200 transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
               href="/http://www.darkwell-academy.com"
               target="_blank"
             >
@@ -132,10 +133,17 @@ export default function Home() {
             </a>
 
             <a
-              className="flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#0f2a1f] via-[#1f4a35] to-[#2f6f4f] px-2 font-[cursive] text-sm md:text-base font-bold tracking-wider text-emerald-200 transition-colors duration-300 hover:border-[#e0b45b]"
+              className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#0f2a1f] via-[#1f4a35] to-[#2f6f4f] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-emerald-200 transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
               href="/recommended-texts"
             >
               Recommended Texts
+            </a>
+
+            <a
+              className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#1a1f3b] via-[#2e2a6b] to-[#4b3fa3] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-indigo-200 transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
+              href="/recommended-texts"
+            >
+              Brightspell
             </a>
 
           </div>

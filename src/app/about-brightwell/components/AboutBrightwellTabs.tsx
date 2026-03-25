@@ -7,8 +7,8 @@ import Tab3 from '../content/Tab3';
 
 const tabs = [
   { id: 'AboutBrightwell', title: 'About Brightwell', component: AboutBrightwell },
-  { id: 'tab2', title: 'Tab 2', component: Tab2 },
-  { id: 'tab3', title: 'Tab 3', component: Tab3 },
+  { id: 'tab2', title: 'Darkwell', component: Tab2 },
+  { id: 'tab3', title: "Arlo's Wonder Compass", component: Tab3 },
 ];
 
 export default function AboutBrightwellTabs() {
