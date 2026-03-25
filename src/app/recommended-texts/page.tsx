@@ -1,3 +1,6 @@
+//Will be used to render intro section and the gallary section
+
+
 export default function Page() {
   return (
     <div className="flex min-h-screen items-center justify-center text-black">

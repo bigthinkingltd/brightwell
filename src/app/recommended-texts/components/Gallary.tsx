@@ -1,0 +1,1 @@
+//This is where the 3 image covers will be displayed- it will handle the layout of the images and the clicks when the user presses
