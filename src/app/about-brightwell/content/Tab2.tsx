@@ -4,17 +4,17 @@ export default function Tab2() {
 
       {/*The title */}
       <div className="flex justify-center pt-16 pb-6">
-        <h2 className="text-4xl font-bold md:text-5xl">
+        <h2 className="text-4xl font-bold md:text-5xl text-black">
           Darkwell
         </h2>
       </div>
 
-
-      <div className="">
+      {/*Imports image- takes up page and has a small border, temporary layout, check w/customer */}
+      <div className="flex-1 w-full px-6 pb-6">
         <img 
-        src=""
-        alt=""
-        className=""
+        src="/about-brightwell/darkwell.png"
+        alt="Darkwell"
+        className="w-full h-full object-cover"
         />
       </div>
     </section>
