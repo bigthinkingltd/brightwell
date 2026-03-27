@@ -141,7 +141,7 @@ export default function Home() {
 
             <a
               className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#1a1f3b] via-[#2e2a6b] to-[#4b3fa3] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-indigo-200 transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
-              href="/recommended-texts"
+              href="/brightspell"
             >
               Brightspell
             </a>
