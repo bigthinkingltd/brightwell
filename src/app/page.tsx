@@ -126,7 +126,7 @@ export default function Home() {
 
             <a
               className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-white/20 bg-gradient-to-br from-[#1a1023] via-[#2b1740] to-[#3a1f5a] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-purple-200 transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
-              href="/http://www.darkwell-academy.com"
+              href="http://www.darkwell-academy.com"
               target="_blank"
             >
               Darkwell
@@ -147,17 +147,19 @@ export default function Home() {
             </a>
 
           </div>
-
         </div>
       </div>
 
-
-
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/40 hover:text-white/70 transition-colors duration-300">
-        <a href="/privacy-terms">
+      {/*Privacy notice link*/}
+      <div className="flex justify-center pt-2 pb-4 md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2">
+        <a 
+          href="/privacy-terms"
+          className="text-xs text-white/40 hover:text-white/70 transition-colors duration-300">
           Privacy and Terms
         </a>
       </div>
+
+
     </section>
   );
 }
