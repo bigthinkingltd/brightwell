@@ -1,14 +1,21 @@
-export default function Tab3() {
+export default function Tab2() {
   return (
-    <section className="min-h-screen w-full px-10 pt-20 pb-12 md:px-16 md:pt-24 md:pb-16 text-[#4d4033]">
-      <h2 className="mb-8 text-4xl font-bold text-[#2f2418] md:text-5xl">
-        Tab 3 Title
-      </h2>
+    <section className="flex min-h-screen w-full flex-col">
 
-      <div className="space-y-6 text-[16px] leading-8">
-        <p>
-          This is placeholder content for Tab 3.
-        </p>
+      {/*The title */}
+      <div className="flex justify-center pt-16 pb-6">
+        <h2 className="text-4xl font-bold md:text-5xl text-black">
+          Arlo's Compass
+        </h2>
+      </div>
+
+      {/*Imports image- takes up page and has a small border, temporary layout, check w/customer */}
+      <div className="flex-1 w-full px-6 pb-6">
+        <img 
+        src="/about-brightwell/arlos-compas.png"
+        alt="Darkwell"
+        className="w-full h-full object-cover"
+        />
       </div>
     </section>
   );
