@@ -10,11 +10,11 @@ export default function Tab2() {
       </div>
 
       {/*Imports image- takes up page and has a small border, temporary layout, check w/customer */}
-      <div className="flex-1 w-full px-6 pb-6">
+      <div className="flex-1 w-full px-6 pb-6 flex items-center justify-center">
         <img 
         src="/about-brightwell/arlos-compas.png"
         alt="Darkwell"
-        className="w-full h-full object-cover"
+        className="max-w-[1200px] w-full h-auto object-contain"
         />
       </div>
     </section>
