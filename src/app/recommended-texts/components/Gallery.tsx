@@ -3,11 +3,11 @@
 
 export default function Gallery() {
   const texts = [
-    {
+    /*{
       id: 'brightspell',
       image: '/recommended-texts/image-covers/brightspell.png',
       width: 'flex-1',
-    },
+    },*/
     {
       id: 'scorch',
       image: '/recommended-texts/image-covers/scorch.png',

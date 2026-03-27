@@ -14,7 +14,7 @@ export default function Tab2() {
         <img 
         src="/about-brightwell/arlos-compas.png"
         alt="Darkwell"
-        className="max-w-[1200px] w-full h-auto object-contain"
+        className="max-w-[700px] w-full h-auto object-contain"
         />
       </div>
     </section>
