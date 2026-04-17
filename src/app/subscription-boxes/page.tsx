@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function SubscriptionBoxesPage() {
   return (
-    <main className="min-h-screen bg-[#efe6d6] px-6 py-16 text-[#2f2418]">
-      <div className="min-h-screen bg-[#efe6d6] px-6 py-16 text-[#2f2418]">
+    <main className="min-h-screen px-6 py-16 text-[#2f2418]">
+      <div className="min-h-screen px-6 py-16 text-[#2f2418]">
 
         {/*the header image, will sit above everything. */}
         <div className="mb-10 w-full max-w-3xl">
