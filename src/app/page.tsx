@@ -104,6 +104,14 @@ export default function Home() {
             >
               History
             </a>
+
+
+            <a
+              className={`flex justify-center w-32 h-16 md:w-44 md:h-20 items-center rounded-sm border border-blue-400/20 bg-gradient-to-br from-[#0f172a] via-[#1e3a5f] to-[#3b82f6] px-2 text-center text-sm md:text-base font-semibold leading-tight tracking-[0.08em] text-blue-100 transition-colors duration-300 hover:border-[#e0b45b] ${cinzel.className}`}
+              href="/subscription-boxes"
+            >
+              Subscription Boxes
+            </a>
           </div>
 
 
