@@ -16,5 +16,46 @@ export default function MembersAccessPage () {
         setMessage('form submitted.');
     }
 
-    
+    return (
+        <main className="">
+            <div className="">
+                <h1 className="">Memebers Area</h1>
+
+                <p className="">
+                    enter the access code from your posted letter to continue to the members area.
+                </p>
+
+                <form
+                    onSubmit={handleSubmit}
+                    className=""
+                >
+                    <label htmlFor="members-code" className="">
+                        Access code
+                    </label>
+
+                    <input
+                        id="members-code"
+                        type="text"
+                        value={code}
+                        onChange={(event) => setCode(event.target.value)}
+                        placeholder="Enter your code"
+                        className=""
+                    />
+
+                    <button
+                        type="submit"
+                        className=""
+                    >
+                        Enter members area
+                    </button>
+                </form>
+
+
+                <div className="">
+                    {message && <p>{message}</p>}
+                </div>
+            </div>
+        </main>
+    );
+
 }
