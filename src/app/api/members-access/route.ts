@@ -15,4 +15,29 @@ export async function POST(request: Request) {
       { status: 400 }
     );
   }
+
+  //read correct access code from the env file
+  const configuredCode = process.env.MEMBERS_ACCESS_CODE;
+
+  //fail safely if the env variable has not been configured
+  if (!configuredCode) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: 'MEMBERS_ACCESS_CODE is missing from your environment variables.',
+      },
+      { status: 500 }
+    );
+  }
+
+  //compare the submitted code with the configured serverside code
+  if (code.trim() !== configuredCode.trim()) {
+    return NextResponse.json(
+      { success: false, message: 'Invalid access code.' },
+      { status: 401 }
+    );
+  }
+
+
+
 }
