@@ -52,9 +52,45 @@ export function getS3BucketName() string {
 // inline: lets the PDF open in the browser if supported
 // attachment: forces the browsee to download the file
 
+function buildContentDisposition(
+    disposition: PdfDisposition,
+    fileName?: string,
+): string {
+    if (disposition === 'download') {
+        return fileName
+            ? 'attachment; filename="$(filename)"'
+            : 'attachment';
+    }
 
-
+    return fileName
+        ? 'inline; filename="${fileName}" '
+        : 'inline';
+}
 
 
 //generates a presigned URL for a PDF in S3
 // URL is temporary and safe to return to the browser
+export async function createPresignedPdfUrl({
+  key,
+  disposition,
+  fileName,
+  expiresIn = 60,
+}: {
+  key: string;
+  disposition: PdfDisposition;
+  fileName?: string;
+  expiresIn?: number;
+}): Promise<string> {
+  const command = new GetObjectCommand({
+    Bucket: bucketName,
+    Key: key,
+    ResponseContentType: 'application/pdf',
+    ResponseContentDisposition: buildContentDisposition(disposition, fileName),
+  });
+
+  const signedUrl = await getSignedUrl(s3, command, {
+    expiresIn,
+  });
+
+  return signedUrl;
+}
