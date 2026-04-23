@@ -30,3 +30,16 @@ if (!accessKeyId) {
 if (!secretAccessKey) {
     throw new Error('Missing enviroment variable: AWS_SECRET_ACCESS_KEY');
 }
+
+
+//reusable S3 client for server side use
+//Will CURRENTLY use access keys from env variables 
+
+const s3 = new S3Client({
+    region,
+    credentials: {
+        accessKeyId,
+        secretAccessKey,
+    },
+});
+
