@@ -43,3 +43,18 @@ const s3 = new S3Client({
     },
 });
 
+//exports the buket name so other serverside files can use one source of truth
+export function getS3BucketName() string {
+    return bucketName;
+}
+
+//content disposition header value
+// inline: lets the PDF open in the browser if supported
+// attachment: forces the browsee to download the file
+
+
+
+
+
+//generates a presigned URL for a PDF in S3
+// URL is temporary and safe to return to the browser
