@@ -30,6 +30,19 @@ export default function Home() {
 
   return (
     <section className="min-h-screen bg-[url('/bg-front.png')] bg-cover bg-left bg-blend-multiply bg-black/60">
+
+      {/*top band for button */}
+      <div className="w-full bg-gradient-to-b from-black via-black/90 via-black/70 to-transparent">
+        <div className="flex justify-center px-4 pt-2 pb-6 md:px-10 md:pt-3 md:pb-8">
+          <a
+            href="/members-access"
+            className={`inline-flex items-center justify-center rounded-sm border border-white/60 px-5 py-1.5 text-xs font-medium tracking-[0.25em] text-white uppercase transition-all duration-300 hover:border-white hover:bg-white/10 md:px-6 md:py-2 md:text-sm ${cinzel.className}`}
+          >
+            Members Area
+          </a>
+        </div>
+      </div>
+
       <div className="flex flex-col min-h-screen px-2 md:px-10 gap-y-8 md:gap-y-20">
         <div className="h-[60vh]">
           <div className="flex h-full flex-col items-end justify-end gap-y-8 md:gap-y-12">
