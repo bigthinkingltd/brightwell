@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          message: 'MEMBERS_ACCESS_CODE is missing from your environment variables.',
+          message: 'The members area is temporarily unavailable.',
         },
         { status: 500 }
       );
