@@ -5,4 +5,14 @@ import { NextRequest, NextReponse } from 'next/server';
 
 import { createPresignedPdfUrl } from '../../../../lib/s3';
 import { pdfs } from '../../../../lib/pdfs';
+import { MEMBERS_ACCESS_COOKIE } from '../../../../lib/membersAccess';
+
+
+//will define the expected shape of the route 
+type RouteContext = {
+    params: Promise<{
+        slug: string;
+    }>;
+};
+
 
